@@ -4,7 +4,7 @@ export CUDA_VISIBLE_DEVICES=3
 
 #dim_word=300 # encoder and decoder embedding size
 #dim=100  #hidden_units
-#batch_size=60
+batch_size=60
 #optimizer="adadelta"
 
 ###########################################################
@@ -15,10 +15,6 @@ export CUDA_VISIBLE_DEVICES=3
 #n_words_trg=($(wc -l ${modeldir}/data/train-targets.json))
 #n_words_trg=$((n_words_trg-1))
 ###########################################################
-
-
-datadir = ./data-sample
-#datadir = ./data-nematus
 
 #dropout=0.2
 
@@ -34,7 +30,7 @@ early_stopping_steps=10
 #####################################################################
 #use the first 10 epochs as a burn-in period
 burn_in_for_n_epochs=10
-validBurnIn=($(wc -l ${datadir}/train-sources))
+validBurnIn=($(wc -l ./data-sample/MTUM_English-GUM/en_gum-um-train.src))
 validBurnIn=$((validBurnIn *${burn_in_for_n_epochs} / batch_size))
 #####################################################################
 
